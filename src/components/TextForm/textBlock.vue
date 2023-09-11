@@ -1,15 +1,16 @@
 <template>
-    <div class="block" @click.right="translate" >
+    <div class="block" @click.left="translate" >
         {{ block }}
     </div>
 </template>
 
 <script>
 export default {
-    props: ['block'],
+    props: ['block','id'],
     methods: {
         translate() {
-            this.$emit('trans', this.$props.key)
+            console.log('key', this.$props.id)
+            this.$emit('trans', this.$props.id)
         }
     }
 }
