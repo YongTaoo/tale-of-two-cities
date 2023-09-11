@@ -23,7 +23,7 @@ export default {
             let appid = '20230911001813027'
             let salt = Math.round(Math.random()*10000000000);
           this.currentValue = this.blocks[val];
-          const hash = MD5(appid + this.currentValue + salt)
+          const hash = MD5(appid + this.currentValue + salt.toString())
           console.log(hash.toString())
           let result = axios.get(`http://api.fanyi.baidu.com/api/trans/vip/translate?q=${this.currentValue}&from=en&to=zh&appid=20230911001813027&salt=${salt}&sign=${hash.toString()}`)
           console.log(result)
