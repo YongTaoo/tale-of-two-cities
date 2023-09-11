@@ -1,5 +1,5 @@
 {
-  "name": "way",
+  "name": "tale-of-two-cities",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,9 @@
     "axios": "^1.5.0",
     "core-js": "^3.8.3",
     "crypto-js": "^4.1.1",
+    "jsonp": "^0.2.1",
     "vue": "^3.2.13",
+    "vue-jsonp": "^2.0.0",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
   },

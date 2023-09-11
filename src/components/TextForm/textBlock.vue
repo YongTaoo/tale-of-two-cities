@@ -20,8 +20,9 @@ export default {
 .block {
     padding: 0.2rem 1rem;
     display: inline-block;
+    font-family: var(--font-display)
 }
-.block:hover {
+.block:hover,.block:active {
     box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
     border-radius: 10px;
 }

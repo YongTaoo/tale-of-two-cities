@@ -1,7 +1,7 @@
 <template>
   <div class="about">
+    <div class="chapter">{{ chapter }}</div>
      <section>
-        <title></title>
         <text-item
           v-for="text in filterText"
           :key="text.id"
@@ -16,6 +16,11 @@
   import textItem from "@/components/TextForm/textItem.vue";
   export default {
      components: { textItem },
+     data() {
+         return {
+            chapter: '1-period'
+         }
+     },
      computed: {
         filterText() {
            const texts = this.$store.getters['text/texts'] ;
@@ -39,5 +44,9 @@
   }
 </script>
 <style scoped>
-
+ .chapter {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 4rem;
+    padding-bottom: 2rem;
+ }
 </style>

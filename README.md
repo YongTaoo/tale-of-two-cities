@@ -1,4 +1,4 @@
-# way
+# tale-of-two-cities
 
 ## Project setup
 ```
