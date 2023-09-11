@@ -20,7 +20,7 @@ export default {
     },
     methods: {
         trans(val) {
-            let appid = 20230911001813027
+            let appid = '20230911001813027'
             let salt = Math.round(Math.random()*10000000000);
           this.currentValue = this.blocks[val];
           const hash = MD5(appid + this.currentValue + salt)
