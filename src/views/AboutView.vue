@@ -24,7 +24,7 @@
      computed: {
         filterText() {
            const texts = this.$store.getters['text/texts'] ;
-           console.log(texts)
+           texts.shift();
            return texts;
         }
      },
