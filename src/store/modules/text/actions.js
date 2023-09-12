@@ -44,13 +44,13 @@ export default {
             console.log('error', error);
         }
     },
-    async loadTexts(context) {
+    async loadTexts(context, payload) {
        
 
         const databaseUrl = context.rootGetters.databaseUrl;
         try {
             const {data: textsData} = await axios.get(
-                `${databaseUrl}/text/1-period.json`
+                `${databaseUrl}/text/${payload}.json`
             )
             console.log(textsData)
             const texts = [];

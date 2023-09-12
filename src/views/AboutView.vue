@@ -16,23 +16,18 @@
   import textItem from "@/components/TextForm/textItem.vue";
   export default {
      components: { textItem },
-     data() {
-         return {
-            chapter: '1-period'
-         }
-     },
+     props: ['chapter'],
      computed: {
         filterText() {
            const texts = this.$store.getters['text/texts'] ;
-           texts.shift();
            return texts;
         }
      },
      methods: {
         async loadTexts(refresh = false) {
-          console.log(refresh)
+         console.log(refresh)
           try {
-           await this.$store.dispatch('text/loadTexts')
+           await this.$store.dispatch('text/loadTexts', this.chapter)
           }catch(err) {
              this.error = err.message || 'somthing went wrong'
           }

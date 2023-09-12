@@ -64,7 +64,7 @@ button:active {
 
 .outline {
     background-color: transparent;
-    color: var(--purple-2);
+    color: brown;
     border-color: currentColor;
 }
 
@@ -77,7 +77,8 @@ button:active {
 
 .outline:hover,
 .outline:active {
-	background-color: var(--pink-2);
-	color: var(--purple-3);
+	background-color: brown;
+	color: white;
+    border-color: currentColor;
 }
 </style>
