@@ -13,7 +13,7 @@ export default {
 <style scoped>
 .card {
     padding: 2rem;
-    padding-bottom: 2.2rem;
+    padding-bottom: 8rem;
     background: var(--white-1);
     font-size: 3rem;
 
@@ -36,7 +36,7 @@ export default {
 .flat {
     border: none;
     background: transparent;
-    padding: 0 2rem;
+    padding: 2rem 2rem;
     max-width: 100%;
     box-shadow: none;
 }
