@@ -10,7 +10,10 @@
             />
             <p v-if="!chapter.isValid">First name must not be empty</p>
         </div>
-        <div class="form-control" :class="styleInvalid(description)">
+        <div class="form-control translate" v-if="query">
+             <div v-for="explain in explains" :key="explain"> {{ explain }}</div>
+        </div>
+        <div class="form-control" :class="styleInvalid(description)" @click.right.prevent="translate">
             <label for="description">Description</label>
             <textarea
                 id="description"
@@ -31,6 +34,8 @@
 
 <script>
 import BaseButton from '../UI/BaseButton.vue';
+import { jsonp } from 'vue-jsonp';
+import { SHA256, enc } from 'crypto-js';
 export default {
   components: { BaseButton },
     emits: ['save-data'],
@@ -44,7 +49,8 @@ export default {
                 val: '',
                 isValid: true,
             },
-         
+            query: null,
+            explains: [],
             formIsValid: true,
         };
     },
@@ -80,6 +86,35 @@ export default {
         },
         styleInvalid(value) {
             return { invalid : !value.isValid }
+        },
+        async translate() {
+            let appKey = '6b5e3ab984d0121b';
+            let salt = Math.round(Math.random()*10000000000);
+            let key = "IqUMJwXkbbY5cVERhgDiodX2EmApSfHU";
+            var curtime = Math.round((new Date()).getTime()/1000);
+            let ti = this.description?.val.split(' ');
+            let currentValue=  ti[ti.length-1];
+            let from = "en";
+            let to='en';
+            console.log(currentValue)
+            let str1 = appKey + currentValue + salt + curtime + key;
+            let sign = SHA256(str1).toString(enc.Hex);
+            let result = await jsonp('https://openapi.youdao.com/api',{
+            type: 'post',
+          
+                q: currentValue,
+                appKey: appKey,
+                salt: salt,
+                from: from,
+                to: to,
+                sign: sign,
+                signType: "v3",
+                curtime: curtime,
+            
+        })
+        //   this.meaning = result.trans_result[0].dst;
+           this.query = result.query;
+           this.explains = result.basic.explains;
         }
     },
     
@@ -90,6 +125,14 @@ export default {
 .form-control {
     margin: 1.6rem 0;
 }
+
+.translate {
+    font-size: 2rem;
+    color: #d13b3b;
+    font-size: 1.8rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 
 label {
     font-weight: bold;
