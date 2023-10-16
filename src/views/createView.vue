@@ -1,6 +1,5 @@
 <template>
     <div class="about">
-      <h1>Just the way things go</h1>
         <text-form @save-data="saveData"></text-form>
     </div>
   </template>

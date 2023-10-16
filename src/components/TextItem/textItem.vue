@@ -11,7 +11,7 @@
 import { jsonp } from 'vue-jsonp';
 import { MD5 } from 'crypto-js';
 import BaseCard from '../UI/BaseCard.vue'
-import textBlock from './textBlock.vue';
+import textBlock from '../TextItem/textBlock.vue';
 import BaseDialoge from '../UI/BaseDialoge.vue';
 export default {
   components: { BaseCard, textBlock, BaseDialoge },

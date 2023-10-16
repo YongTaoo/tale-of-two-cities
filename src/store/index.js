@@ -1,11 +1,13 @@
 import { createStore } from 'vuex'
 import  textModule  from './modules/text'
 import chapter from './modules/chapter'
+import records from './modules/records'
 
 export default createStore({
   modules: {
     text: textModule,
-    chapter: chapter
+    chapter: chapter,
+    records: records
   },
   state() {
     return {

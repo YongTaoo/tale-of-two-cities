@@ -6,6 +6,7 @@
           v-for="text in filterText"
           :key="text.id"
           :text ="text.data"
+          :map="text.map"
           >
 
         </text-item>
@@ -13,7 +14,7 @@
   </div>
 </template>
 <script>
-  import textItem from "@/components/TextForm/textItem.vue";
+  import textItem from "@/components/TextItem/textItem.vue";
   export default {
      components: { textItem },
      props: ['chapter'],

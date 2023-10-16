@@ -25,7 +25,6 @@ export default {
     async addChapter(context, payload) {
         const databaseUrl = context.rootGetters.databaseUrl;
          context.commit('addChapter', payload);
-
          try {
 
             let chapters = context.getters.chapters

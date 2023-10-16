@@ -13,7 +13,7 @@
         <div class="form-control translate" v-if="query">
              <div v-for="explain in explains" :key="explain"> {{ explain }}</div>
         </div>
-        <div class="form-control" :class="styleInvalid(description)" @click.right.prevent="translate">
+        <div class="form-control" :class="styleInvalid(description)" @keyup.enter.prevent="translate">
             <label for="description">Description</label>
             <textarea
                 id="description"

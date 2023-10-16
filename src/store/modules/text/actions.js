@@ -4,7 +4,8 @@ export default {
     async submitText(context, data) {
         const textData = {
             chapter: data.chapter,
-            description: data.desc
+            description: data.desc,
+            map: data.map
         }
 
         const databaseUrl = context.rootGetters.databaseUrl;
